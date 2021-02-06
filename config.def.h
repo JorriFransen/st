@@ -182,7 +182,7 @@ static unsigned int defaultattr = 11;
  * Note that if you want to use ShiftMask with selmasks, set this to an other
  * modifier, set to 0 to not use it.
  */
-static uint forcemousemod = 0;
+static uint forcemousemod = ShiftMask;
 
 // Mouse scroll speed
 const unsigned int mousescrollincrement = 2;
@@ -198,10 +198,10 @@ static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
 	{ ShiftMask,            Button4, changealpha,    { .f = +0.01 }  },
 	{ ShiftMask,            Button5, changealpha,    { .f = -0.01 }  },
-	{ XK_ANY_MOD,            Button4, kscrollup,      { .i = mousescrollincrement }, 0, /* !alt */ -1 },
-	{ XK_ANY_MOD,            Button5, kscrolldown,    { .i = mousescrollincrement }, 0, /* !alt */ -1 },
 	{ ControlMask,          Button4, zoom,           { .f = +1 }  },
 	{ ControlMask,          Button5, zoom,           { .f = -1 }  },
+	{ XK_ANY_MOD,           Button4, kscrollup,      { .i = mousescrollincrement }, 0, /* !alt */ -1 },
+	{ XK_ANY_MOD,           Button5, kscrolldown,    { .i = mousescrollincrement }, 0, /* !alt */ -1 },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
     { XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
     { XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
