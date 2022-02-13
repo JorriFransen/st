@@ -1,0 +1,45 @@
+From 51ce46f5b7fa527f15b02127976e798b2da4fe40 Mon Sep 17 00:00:00 2001
+From: jorri <jorrifransen@gmail.com>
+Date: Sat, 6 Feb 2021 17:07:59 +0100
+Subject: [PATCH] Allowing bg alpha tyo change dynamically.
+
+---
+ x.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/x.c b/x.c
+index f5adbf7..3b98df5 100644
+--- a/x.c
++++ b/x.c
+@@ -58,6 +58,7 @@ static void clipcopy(const Arg *);
+ static void clippaste(const Arg *);
+ static void numlock(const Arg *);
+ static void selpaste(const Arg *);
++static void changealpha(const Arg *);
+ static void zoom(const Arg *);
+ static void zoomabs(const Arg *);
+ static void zoomreset(const Arg *);
+@@ -300,6 +301,20 @@ numlock(const Arg *dummy)
+ 	win.mode ^= MODE_NUMLOCK;
+ }
+ 
++void
++changealpha(const Arg *arg)
++{
++	alpha += arg->f;
++
++	if (alpha < 0)
++		alpha = 0;
++	if (alpha > 1)
++		alpha = 1;
++
++	xloadcols();
++	redraw();
++}
++
+ void
+ zoom(const Arg *arg)
+ {
+-- 
+2.30.0
+
