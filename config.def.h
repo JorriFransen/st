@@ -106,29 +106,31 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.95;
+float alpha = 0.98;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	[0] = "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	[1] = "#cc241d", /* red     */
-	[2] = "#98971a", /* green   */
-	[3] = "#d79921", /* yellow  */
-	[4] = "#458588", /* blue    */
-	[5] = "#b16286", /* magenta */
-	[6] = "#689d6a", /* cyan    */
-	[7] = "#a89984", /* white   */
+    [0] = "#232627",
+    [1] = "#ed1515",
+    [2] = "#11d116",
+    [3] = "#f67400",
+    [4] = "#1d99f3",
+    [5] = "#9b59b6",
+    [6] = "#1abc9c",
+    [7] = "#fcfcfc",
 
 	/* 8 bright colors */
-	[8]  = "#928374", /* black   */
-	[9]  = "#fb4934", /* red     */
-	[10] = "#b8bb26", /* green   */
-	[11] = "#fabd2f", /* yellow  */
-	[12] = "#83a598", /* blue    */
-	[13] = "#d3869b", /* magenta */
-	[14] = "#8ec07c", /* cyan    */
-	[15] = "#ebdbb2", /* white   */
+	[8]  = "#7f8c8d",
+	[9]  = "#c0392b",
+	[10] = "#1cdc9a",
+	[11] = "#fdbc4b",
+	[12] = "#3daee9",
+	[13] = "#8e44ad",
+	[14] = "#16a085",
+	[15] = "#ffffff",
+
+    [255] = 0,
 };
 
 
@@ -136,10 +138,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 15;
+unsigned int defaultfg = 7;
 unsigned int defaultbg = 0;
-unsigned int defaultcs = 15;
-static unsigned int defaultrcs = 257;
+unsigned int defaultcs = 8;
+static unsigned int defaultrcs = 15;
 
 /*
  * Default shape of cursor
